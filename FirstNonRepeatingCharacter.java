@@ -10,17 +10,13 @@ public class FirstNonRepeatingCharacter {
         // Frequency array to store the count of each character (assuming lowercase letters)
         int[] freq = new int[26]; 
         
-        // Convert the string to lowercase to handle case insensitivity
-        char[] ch = s.toLowerCase().toCharArray();
-        
-        // First loop to populate the frequency array
-        for (char c : ch) {
-            freq[c - 'a']++; // Increment the frequency of each character
+        for(int i=0;i<s.length();i++) {
+        	freq[s.charAt(i)-'a']++;
         }
         
         // Second loop to find the first character with frequency 1
-        for (int i = 0; i < ch.length; i++) {
-            if (freq[ch[i] - 'a'] == 1) {
+        for (int i = 0; i < s.length(); i++) {
+            if (freq[s.charAt(i) - 'a'] == 1) {
                 return i; // Return the index of the first non-repeating character
             }
         }
